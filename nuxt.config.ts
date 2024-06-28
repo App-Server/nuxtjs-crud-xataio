@@ -2,20 +2,27 @@
 export default defineNuxtConfig({
   
   devtools: { enabled: true },
-  // //modules: ['@nuxtjs/tailwindcss'],
+
+  css: [
+    '@/assets/main.css',
+  ]
+  
+  
+  // modules: ['@nuxtjs/tailwindcss'],
+  
   // modules: ['usebootstrap'],
-  // // Adiciona o Bootstrap e o BootstrapVue como plugins
+  // Adiciona o Bootstrap e o BootstrapVue como plugins
   // plugins: [
   //   '~/plugins/bootstrap-vue.js'
   // ],
 
-  // // // Adiciona arquivos CSS do Bootstrap e BootstrapVue
+  // // Adiciona arquivos CSS do Bootstrap e BootstrapVue
   // css: [
   //   'bootstrap/dist/css/bootstrap.css',
   //   'bootstrap-vue/dist/bootstrap-vue.css'
   // ],
 
-  // // Configura a build para reconhecer os módulos
+  // Configura a build para reconhecer os módulos
   // build: {
   //   transpile: ['bootstrap-vue']
   // }

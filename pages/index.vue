@@ -1,19 +1,55 @@
 <template>
     <div>
-        <Header />
-        <div class="container mx-auto px-10">
-            <h1>Hello word! / pages</h1>
-            
-        </div>
+      <div class="vuejs-container">
+        <h1>Hello world! / pages</h1>
+        <Modal />
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        open: false
+      }
+    },
 
-<script>
-    export default {
-        
+  }
+  </script>
+  
+  <style>
+
+.vuejs-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .vuejs-container {
+        max-width: 540px;
     }
-</script>
-
-<style scoped>
-
+}
+@media (min-width: 768px) {
+    .vuejs-container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .vuejs-container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .vuejs-container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .vuejs-container {
+        max-width: 1320px;
+    }
+}
 </style>

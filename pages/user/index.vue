@@ -1,25 +1,26 @@
 <template>
     <div>
       <h1>User Create</h1>
-  
-      <form @submit.prevent="register">
-        <div>
-          <label for="username">Username</label>
-          <input id="username" v-model="name" type="text">
+      <div class="vuejs-content">
+        <form @submit.prevent="register">
+          <div>
+            <label for="username">Username</label>
+            <input id="username" v-model="name" type="text">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" v-model="email" type="email">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" v-model="password" type="password">
+          </div>
+          <button type="submit">Register</button>
+        </form>
+    
+        <div v-if="status" :class="{'success': success, 'error': !success}">
+          {{ status }}
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password">
-        </div>
-        <button type="submit">Register</button>
-      </form>
-  
-      <div v-if="status" :class="{'success': success, 'error': !success}">
-        {{ status }}
       </div>
   
       <h2>Bank Users</h2>
@@ -111,5 +112,38 @@
   .error {
     color: red;
   }
+
+  .vuejs-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .vuejs-container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .vuejs-container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .vuejs-container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .vuejs-container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .vuejs-container {
+        max-width: 1320px;
+    }
+}
   </style>
   

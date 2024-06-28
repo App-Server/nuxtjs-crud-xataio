@@ -1,27 +1,30 @@
 <template>
     <div>
-      <h1>User Create</h1>
-  
-      <form @submit.prevent="register">
-        <div>
-          <label for="username">Username</label>
-          <input id="username" v-model="name" type="text">
+        <div class="container">
+          <h1>User Create</h1>
+          
+          <form @submit.prevent="register">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" v-model="name" type="text">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" v-model="email" type="email">
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" v-model="password" type="password">
+            </div>
+            <button type="submit">Register</button>
+          </form>
+      
+          <div v-if="status" :class="{'success': success, 'error': !success}">
+            {{ status }}
+          </div>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password">
-        </div>
-        <button type="submit">Register</button>
-      </form>
-  
-      <div v-if="status" :class="{'success': success, 'error': !success}">
-        {{ status }}
       </div>
-    </div>
+      
   </template>
   
   <script>

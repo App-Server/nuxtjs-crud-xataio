@@ -2,11 +2,7 @@
     <div>
         <header>
             <nav>
-                <li><NuxtLink to="/">index</NuxtLink></li>
-                <li><NuxtLink to="/videos">Videos</NuxtLink></li>
-                <li><NuxtLink to="/videos/favoritos">Favoritos</NuxtLink></li>
-                <li><NuxtLink to="/user/create">User Create</NuxtLink></li>
-                <li><NuxtLink to="/user">List User</NuxtLink></li>
+                <Header />
             </nav>
         </header>
         <div>
@@ -14,3 +10,11 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+</style>

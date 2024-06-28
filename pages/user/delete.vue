@@ -1,36 +1,47 @@
 <template>
     <div>
-      <h1>User Create/Edit</h1>
-  
-      <form @submit.prevent="submitForm">
-        <div>
-          <label for="username">Username</label>
-          <input id="username" v-model="name" type="text">
+        <div class="vuejs-container">
+        <h1>User Create/Edit</h1>
+        <Modal>
+          <form @submit.prevent="submitForm">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" v-model="name" type="text">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" v-model="email" type="email">
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" v-model="password" type="password">
+            </div>
+            <button type="submit">{{ isEditing ? 'Update' : 'Register' }}</button>
+          </form>
+      
+          <div v-if="status" :class="{'success': success, 'error': !success}">
+            {{ status }}
+          </div>
+          </Modal>
+          
+
+          <h2>Bank Users</h2>
+          <ul class="cards-container">
+            <div v-for="user in users" :key="user.id" class="card">
+              <div class="container">
+                {{ user.name }} - {{ user.email }}
+                <button @click="loadUser(user.id)">Edit</button>
+                <button @click="deleteUser(user.id)">Delete</button>
+              </div>
+            </div>
+          </ul>
+
+          
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password">
-        </div>
-        <button type="submit">{{ isEditing ? 'Update' : 'Register' }}</button>
-      </form>
-  
-      <div v-if="status" :class="{'success': success, 'error': !success}">
-        {{ status }}
-      </div>
-  
-      <h2>Bank Users</h2>
-      <ul>
-        <li v-for="user in users" :key="user.id">
-          {{ user.name }} - {{ user.email }}
-          <button @click="loadUser(user.id)">Edit</button>
-          <button @click="deleteUser(user.id)">Delete</button>
-        </li>
-      </ul>
-    </div>
+        
+        
+      </div>      
+
   </template>
   
   <script>
@@ -198,5 +209,54 @@
   .error {
     color: red;
   }
+
+  .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 50px 16px;
+}
+
+  .vuejs-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .vuejs-container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .vuejs-container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .vuejs-container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .vuejs-container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .vuejs-container {
+        max-width: 1320px;
+    }
+}
   </style>
   

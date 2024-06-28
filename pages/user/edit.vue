@@ -1,36 +1,39 @@
 <template>
     <div>
-      <h1>User Create/Edit</h1>
+      <div class="container">
+        <h1>User Create/Edit</h1>
   
-      <form @submit.prevent="submitForm">
-        <div>
-          <label for="username">Username</label>
-          <input id="username" v-model="name" type="text">
+          <form @submit.prevent="submitForm">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" v-model="name" type="text">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" v-model="email" type="email">
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" v-model="password" type="password">
+            </div>
+            <button type="submit">{{ isEditing ? 'Update' : 'Register' }}</button>
+          </form>
+
+          <div v-if="status" :class="{'success': success, 'error': !success}">
+            {{ status }}
+          </div>
+
+          <h2>Bank Users</h2>
+          <ul>
+            <li v-for="user in users" :key="user.id">
+              {{ user.name }} - {{ user.email }}
+              <button @click="loadUser(user.id)">Edit</button>
+            </li>
+          </ul>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password">
-        </div>
-        <button type="submit">{{ isEditing ? 'Update' : 'Register' }}</button>
-      </form>
-  
-      <div v-if="status" :class="{'success': success, 'error': !success}">
-        {{ status }}
       </div>
-  
-      <h2>Bank Users</h2>
-      <ul>
-        <li v-for="user in users" :key="user.id">
-          {{ user.name }} - {{ user.email }}
-          <button @click="loadUser(user.id)">Edit</button>
-        </li>
-      </ul>
-    </div>
-  </template>
+      
+</template>
   
   <script>
   export default {
