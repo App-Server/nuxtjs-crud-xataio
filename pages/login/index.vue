@@ -1,4 +1,42 @@
 <template>
+  <div>
+    <h1>Login</h1>
+    <form @submit.prevent="login">
+      <input v-model="username" placeholder="Username" />
+      <input v-model="password" type="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    async login() {
+      try {
+        await this.$auth.loginWith('local', {
+          data: {
+            username: this.username,
+            password: this.password
+          }
+        })
+        this.$router.push('/')
+      } catch (e) {
+        console.error('Erro ao fazer login:', e)
+      }
+    }
+  }
+}
+</script>
+
+
+<!-- <template>
     <div>
       <h1>User Management</h1>
   
@@ -263,4 +301,4 @@
     color: red;
   }
   </style>
-  
+   -->
